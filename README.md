@@ -8,30 +8,16 @@
 
 ## 📸 Screenshots
 
-<details>
-<summary><b>Click to expand and view all screenshots</b></summary>
-<br>
+| Auth Flows | Ticket Management |
+| :---: | :---: |
+| **Login**<br>![Login](screenshots/login.png) | **Dashboard**<br>![Dashboard](screenshots/dashboard.png) |
+| **Register**<br>![Register](screenshots/register.png) | **Ticket List**<br>![Ticket List](screenshots/ticket-list.png) |
+| **Create Ticket**<br>![Create Ticket](screenshots/create-ticket.png) | **Ticket Details**<br>![Ticket Details](screenshots/ticket-details.png) |
 
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125044.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125130.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125350.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125627.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125657.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20135402.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140317.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140329.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140342.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140358.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140409.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140436.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140446.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140505.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140750.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140814.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140840.png)
-![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140905.png)
-
-</details>
+| Communication & Integrations | Infrastructure |
+| :---: | :---: |
+| **Conversation Thread**<br>![Conversation](screenshots/conversation.png) | **GitHub Actions CI/CD**<br>![GitHub Actions](screenshots/github-actions.png) |
+| **Vercel Deployment**<br>![Vercel](screenshots/vercel.png) | **Render Deployment**<br>![Render](screenshots/render.png) |
 
 ## ✨ Key Features
 - **Multi-Tenancy:** Secure data isolation by Organization. Users only see tickets belonging to their tenant workspace.
