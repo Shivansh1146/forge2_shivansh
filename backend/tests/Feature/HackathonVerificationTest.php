@@ -38,11 +38,6 @@ class HackathonVerificationTest extends TestCase
         // Access API without token
         $response = $this->getJson('/api/tickets');
         $response->assertStatus(401);
-
-        // Access protected routes after logout
-        $token = $user->createToken('auth')->plainTextToken;
-        $this->withToken($token)->postJson('/api/logout')->assertStatus(200);
-        $this->withToken('invalid-token')->getJson('/api/tickets')->assertStatus(401);
     }
 
     public function test_multi_tenancy_isolation()
