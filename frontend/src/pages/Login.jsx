@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import api from '../lib/axios';
 
 export default function Login() {
@@ -12,9 +13,10 @@ export default function Login() {
         try {
             const { data } = await api.post('/login', { email, password });
             localStorage.setItem('token', data.token);
+            toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
-            alert('Login failed');
+            toast.error('Login failed. Please check your credentials.');
         }
     };
 

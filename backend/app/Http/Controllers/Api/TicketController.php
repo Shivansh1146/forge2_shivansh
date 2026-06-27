@@ -18,6 +18,13 @@ class TicketController extends Controller {
         if ($request->user()->role === 'customer') {
             $query->where('requester_id', $request->user()->id);
         }
+        if ($request->breached === 'true') {
+            $tickets = $query->get()->filter->is_breached->values();
+            return response()->json([
+                'data' => $tickets,
+                'last_page' => 1
+            ]);
+        }
         return response()->json($query->latest()->paginate(20));
     }
     public function store(Request $request) {

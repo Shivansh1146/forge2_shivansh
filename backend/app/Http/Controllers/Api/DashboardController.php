@@ -16,6 +16,9 @@ class DashboardController extends Controller {
         $recentTickets = Ticket::where('organization_id', $orgId)
             ->with(['requester','assignee'])
             ->latest()->take(5)->get();
-        return response()->json(compact('byStatus','byPriority','recentTickets'));
+        $slaBreached = Ticket::where('organization_id', $orgId)
+            ->whereNotIn('status', ['resolved', 'closed'])
+            ->get()->filter->is_breached->count();
+        return response()->json(compact('byStatus','byPriority','recentTickets','slaBreached'));
     }
 }

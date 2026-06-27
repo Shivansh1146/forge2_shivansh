@@ -30,7 +30,7 @@ export default function Dashboard() {
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                     <div className="text-sm font-medium text-gray-500">SLA Breached</div>
-                    <div className="mt-2 text-3xl font-bold text-red-600">0</div>
+                    <div className="mt-2 text-3xl font-bold text-red-600">{data?.slaBreached || 0}</div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import api from '../lib/axios';
 
 export default function CreateTicket() {
@@ -10,9 +11,10 @@ export default function CreateTicket() {
         e.preventDefault();
         try {
             await api.post('/tickets', form);
+            toast.success('Ticket created successfully!');
             navigate('/tickets');
         } catch (error) {
-            alert('Failed to create ticket');
+            toast.error('Failed to create ticket');
         }
     };
 

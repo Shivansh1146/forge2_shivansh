@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import api from '../lib/axios';
 
 export default function Register() {
@@ -11,9 +12,10 @@ export default function Register() {
         try {
             const { data } = await api.post('/register', form);
             localStorage.setItem('token', data.token);
+            toast.success('Account created successfully!');
             navigate('/');
         } catch (error) {
-            alert('Registration failed');
+            toast.error('Registration failed. Please check your details.');
         }
     };
 

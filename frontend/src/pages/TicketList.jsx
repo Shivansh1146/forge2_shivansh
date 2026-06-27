@@ -8,10 +8,11 @@ export default function TicketList() {
     const [status, setStatus] = useState('');
     const [priority, setPriority] = useState('');
     const [page, setPage] = useState(1);
+    const [breached, setBreached] = useState(false);
 
     const { data, isLoading } = useQuery({
-        queryKey: ['tickets', search, status, priority, page],
-        queryFn: () => api.get('/tickets', { params: { search, status, priority, page } }).then(res => res.data)
+        queryKey: ['tickets', search, status, priority, page, breached],
+        queryFn: () => api.get('/tickets', { params: { search, status, priority, page, breached: breached ? 'true' : '' } }).then(res => res.data)
     });
 
     return (
@@ -43,6 +44,10 @@ export default function TicketList() {
                     <option value="high">High</option>
                     <option value="urgent">Urgent</option>
                 </select>
+                <label className="flex items-center gap-2">
+                    <input type="checkbox" checked={breached} onChange={e => setBreached(e.target.checked)} className="rounded text-red-600 focus:ring-red-500" />
+                    <span className="text-sm font-medium text-gray-700">Breached Only</span>
+                </label>
             </div>
 
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
@@ -62,8 +67,11 @@ export default function TicketList() {
                             <tr><td colSpan="4" className="px-6 py-4 text-center text-gray-500">No tickets found</td></tr>
                         ) : (
                             data?.data?.map(ticket => (
-                                <tr key={ticket.id} className="hover:bg-gray-50">
-                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">{ticket.subject}</td>
+                                <tr key={ticket.id} className={`hover:bg-gray-50 ${ticket.is_breached ? 'bg-red-50' : ''}`} onClick={() => window.location.href = `/tickets/${ticket.id}`} style={{cursor: 'pointer'}}>
+                                    <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                                        {ticket.subject}
+                                        {ticket.is_breached && <span className="ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">SLA Breached</span>}
+                                    </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-gray-500">{ticket.requester?.name}</td>
                                     <td className="px-6 py-4 whitespace-nowrap">
                                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800`}>
