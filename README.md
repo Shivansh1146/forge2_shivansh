@@ -6,6 +6,9 @@
 - **Frontend (Vercel):** [https://forge2-shivansh.vercel.app](https://forge2-shivansh.vercel.app)
 - **Backend API (Render):** [https://pulsedesk-api-nnjd.onrender.com](https://pulsedesk-api-nnjd.onrender.com)
 
+## 📸 Screenshots
+*(Attach your screenshots here! E.g., Dashboard, Ticket Details, etc.)*
+
 ## ✨ Key Features
 - **Multi-Tenancy:** Secure data isolation by Organization. Users only see tickets belonging to their tenant workspace.
 - **Role-Based Access Control (RBAC):** Distinct roles for `Admin`, `Agent`, and `Customer` with strict API authorization gates.
