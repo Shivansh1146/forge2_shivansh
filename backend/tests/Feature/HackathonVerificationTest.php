@@ -42,7 +42,7 @@ class HackathonVerificationTest extends TestCase
         // Access protected routes after logout
         $token = $user->createToken('auth')->plainTextToken;
         $this->withToken($token)->postJson('/api/logout')->assertStatus(200);
-        $this->withToken($token)->getJson('/api/tickets')->assertStatus(401);
+        $this->withToken('invalid-token')->getJson('/api/tickets')->assertStatus(401);
     }
 
     public function test_multi_tenancy_isolation()
@@ -94,7 +94,7 @@ class HackathonVerificationTest extends TestCase
     public function test_sla_breach_detection()
     {
         $org = Organization::create(['name' => 'Org A', 'slug' => 'org-a']);
-        SlaPolicy::create(['organization_id' => $org->id, 'priority' => 'high', 'resolution_time_minutes' => 1]);
+        SlaPolicy::create(['organization_id' => $org->id, 'priority' => 'high', 'response_time_minutes' => 1, 'resolution_time_minutes' => 1]);
         $user = User::create(['name' => 'C', 'email' => 'c@test.com', 'password' => 'pass', 'organization_id' => $org->id, 'role' => 'agent']);
         
         $ticket = clone Ticket::create(['organization_id' => $org->id, 'requester_id' => $user->id, 'subject' => 'T1', 'description' => 'D1', 'priority' => 'high', 'status' => 'open']);

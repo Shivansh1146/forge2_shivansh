@@ -51,6 +51,7 @@ class TicketTest extends TestCase
 
     public function test_can_update_ticket()
     {
+        $agent = User::create(['name' => 'A', 'email' => 'a@test.com', 'password' => 'pw', 'organization_id' => $this->org->id, 'role' => 'agent']);
         $ticket = Ticket::create([
             'organization_id' => $this->org->id,
             'requester_id' => $this->user->id,
@@ -60,7 +61,7 @@ class TicketTest extends TestCase
             'priority' => 'low'
         ]);
         
-        $response = $this->actingAs($this->user)->putJson("/api/tickets/{$ticket->id}", [
+        $response = $this->actingAs($agent)->putJson("/api/tickets/{$ticket->id}", [
             'status' => 'resolved'
         ]);
         $response->assertStatus(200)->assertJsonPath('status', 'resolved');
