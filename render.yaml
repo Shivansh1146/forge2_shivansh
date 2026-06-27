@@ -1,11 +1,9 @@
 services:
   - type: web
     name: pulsedesk-api
-    env: php
+    env: docker
     plan: free
     rootDir: backend
-    buildCommand: composer install --no-dev --optimize-autoloader && php artisan migrate --force
-    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
     envVars:
       - key: APP_KEY
         generateValue: true
