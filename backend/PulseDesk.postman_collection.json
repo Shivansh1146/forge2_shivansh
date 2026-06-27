@@ -1,0 +1,199 @@
+{
+	"info": {
+		"name": "PulseDesk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /api/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Test User\",\"email\":\"test@acme.com\",\"password\":\"password\",\"organization_slug\":\"acme\",\"role\":\"customer\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/register",
+					"host": ["{{base_url}}"],
+					"path": ["api", "register"]
+				}
+			}
+		},
+		{
+			"name": "POST /api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"test@acme.com\",\"password\":\"password\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/login",
+					"host": ["{{base_url}}"],
+					"path": ["api", "login"]
+				}
+			}
+		},
+		{
+			"name": "GET /api/me",
+			"request": {
+				"method": "GET",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"url": {
+					"raw": "{{base_url}}/api/me",
+					"host": ["{{base_url}}"],
+					"path": ["api", "me"]
+				}
+			}
+		},
+		{
+			"name": "GET /api/tickets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"url": {
+					"raw": "{{base_url}}/api/tickets",
+					"host": ["{{base_url}}"],
+					"path": ["api", "tickets"]
+				}
+			}
+		},
+		{
+			"name": "POST /api/tickets",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"subject\":\"Broken screen\",\"description\":\"My screen is shattered\",\"priority\":\"high\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tickets",
+					"host": ["{{base_url}}"],
+					"path": ["api", "tickets"]
+				}
+			}
+		},
+		{
+			"name": "PUT /api/tickets/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"status\":\"resolved\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tickets/1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "tickets", "1"]
+				}
+			}
+		},
+		{
+			"name": "DELETE /api/tickets/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"url": {
+					"raw": "{{base_url}}/api/tickets/1",
+					"host": ["{{base_url}}"],
+					"path": ["api", "tickets", "1"]
+				}
+			}
+		},
+		{
+			"name": "GET /api/dashboard",
+			"request": {
+				"method": "GET",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"url": {
+					"raw": "{{base_url}}/api/dashboard",
+					"host": ["{{base_url}}"],
+					"path": ["api", "dashboard"]
+				}
+			}
+		},
+		{
+			"name": "GET /api/tickets/{id}/conversations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"url": {
+					"raw": "{{base_url}}/api/tickets/1/conversations",
+					"host": ["{{base_url}}"],
+					"path": ["api", "tickets", "1", "conversations"]
+				}
+			}
+		},
+		{
+			"name": "POST /api/tickets/{id}/conversations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Authorization", "value": "Bearer {{token}}" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"body\":\"I will fix this immediately.\",\"type\":\"public_reply\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/tickets/1/conversations",
+					"host": ["{{base_url}}"],
+					"path": ["api", "tickets", "1", "conversations"]
+				}
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
