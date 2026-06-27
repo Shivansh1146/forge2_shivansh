@@ -162,10 +162,10 @@ npm run dev
 <summary><b>Click to expand and view all screenshots</b></summary>
 <br>
 
-![Screenshot](evidence/evidence/screenshots/Screenshot%202026-06-27%20125044.png)
-![Screenshot](evidence/evidence/screenshots/Screenshot%202026-06-27%20125130.png)
-![Screenshot](evidence/evidence/screenshots/Screenshot%202026-06-27%20125350.png)
-![Screenshot](evidence/evidence/screenshots/Screenshot%202026-06-27%20125627.png)
+![Screenshot](evidence/screenshots/Screenshot%202026-06-27%20125044.png)
+![Screenshot](evidence/screenshots/Screenshot%202026-06-27%20125130.png)
+![Screenshot](evidence/screenshots/Screenshot%202026-06-27%20125350.png)
+![Screenshot](evidence/screenshots/Screenshot%202026-06-27%20125627.png)
 ![Screenshot](evidence/screenshots/Screenshot%2026-06-27%20125657.png)
 ![Screenshot](evidence/screenshots/Screenshot%202026-06-27%20135402.png)
 ![Screenshot](evidence/screenshots/Screenshot%202026-06-27%20140317.png)
