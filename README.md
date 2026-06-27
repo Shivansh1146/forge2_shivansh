@@ -7,7 +7,18 @@
 - **Backend API (Render):** [https://pulsedesk-api-nnjd.onrender.com](https://pulsedesk-api-nnjd.onrender.com)
 
 ## 📸 Screenshots
-*(Attach your screenshots here! E.g., Dashboard, Ticket Details, etc.)*
+
+| App Interface | Ticket Management |
+| :---: | :---: |
+| ![Screenshot 1](docs/screenshots/Screenshot%202026-06-27%20125044.png) | ![Screenshot 2](docs/screenshots/Screenshot%202026-06-27%20125130.png) |
+
+| Create Flow | Logs / Success |
+| :---: | :---: |
+| ![Screenshot 3](docs/screenshots/Screenshot%202026-06-27%20125350.png) | ![Screenshot 4](docs/screenshots/Screenshot%202026-06-27%20125627.png) |
+
+| Terminal Output |
+| :---: |
+| ![Screenshot 5](docs/screenshots/Screenshot%202026-06-27%20125657.png) |
 
 ## ✨ Key Features
 - **Multi-Tenancy:** Secure data isolation by Organization. Users only see tickets belonging to their tenant workspace.
