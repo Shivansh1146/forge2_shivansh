@@ -6,11 +6,11 @@ services:
     rootDir: backend
     envVars:
       - key: APP_KEY
-        generateValue: true
+        value: "base64:0dGmcex4kbio1YnQzAgb2vY5qo+eOyn8grBwwiMTSWY="
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
-        value: false
+        value: true
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
