@@ -25,15 +25,25 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
-          extensions: mbstring, pdo_mysql, pdo_sqlite, sqlite3
+          extensions: mbstring, pdo_mysql
           coverage: none
+          tools: composer:v2
           
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: backend/vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('backend/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+            
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
         
       - name: Setup Environment
         run: |
           cp .env.example .env
+          echo "APP_KEY=" >> .env
           sed -i 's/DB_DATABASE=pulsedesk/DB_DATABASE=pulsedesk_test/' .env
           sed -i 's/DB_PASSWORD=/DB_PASSWORD=password/' .env
           php artisan key:generate
