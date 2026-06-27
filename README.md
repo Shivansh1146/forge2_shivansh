@@ -8,17 +8,30 @@
 
 ## 📸 Screenshots
 
-| App Interface | Ticket Management |
-| :---: | :---: |
-| ![Screenshot 1](docs/screenshots/Screenshot%202026-06-27%20125044.png) | ![Screenshot 2](docs/screenshots/Screenshot%202026-06-27%20125130.png) |
+<details>
+<summary><b>Click to expand and view all screenshots</b></summary>
+<br>
 
-| Create Flow | Logs / Success |
-| :---: | :---: |
-| ![Screenshot 3](docs/screenshots/Screenshot%202026-06-27%20125350.png) | ![Screenshot 4](docs/screenshots/Screenshot%202026-06-27%20125627.png) |
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125044.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125130.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125350.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125627.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20125657.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20135402.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140317.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140329.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140342.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140358.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140409.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140436.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140446.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140505.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140750.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140814.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140840.png)
+![Screenshot](docs/screenshots/Screenshot%202026-06-27%20140905.png)
 
-| Terminal Output |
-| :---: |
-| ![Screenshot 5](docs/screenshots/Screenshot%202026-06-27%20125657.png) |
+</details>
 
 ## ✨ Key Features
 - **Multi-Tenancy:** Secure data isolation by Organization. Users only see tickets belonging to their tenant workspace.
