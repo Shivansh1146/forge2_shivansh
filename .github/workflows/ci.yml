@@ -10,24 +10,36 @@ jobs:
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: pulsedesk_test
         ports: ['3306:3306']
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+    defaults:
+      run:
+        working-directory: ./backend
     steps:
       - uses: actions/checkout@v4
+      
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
-          extensions: mbstring, pdo_mysql
+          php-version: '8.4'
+          extensions: mbstring, pdo_mysql, pdo_sqlite, sqlite3
+          coverage: none
+          
       - name: Install dependencies
-        run: cd backend && composer install
-      - name: Setup env
+        run: composer install --prefer-dist --no-interaction --no-progress
+        
+      - name: Setup Environment
         run: |
-          cd backend
           cp .env.example .env
-          php artisan key:generate
           sed -i 's/DB_DATABASE=pulsedesk/DB_DATABASE=pulsedesk_test/' .env
           sed -i 's/DB_PASSWORD=/DB_PASSWORD=password/' .env
-      - name: Run migrations
-        run: cd backend && php artisan migrate --seed
-      - name: Run tests
-        run: cd backend && php artisan test
+          php artisan key:generate
+          
+      - name: Run Migrations and Seeders
+        run: php artisan migrate:fresh --seed --force
+        
+      - name: Run Tests
+        run: php artisan test
