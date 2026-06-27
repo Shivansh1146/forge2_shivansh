@@ -16,7 +16,8 @@ export default function Login() {
             toast.success('Logged in successfully!');
             navigate('/');
         } catch (error) {
-            toast.error('Login failed. Please check your credentials.');
+            const msg = error.response?.data?.message || 'Login failed. Please check your credentials.';
+            toast.error(msg);
         }
     };
 

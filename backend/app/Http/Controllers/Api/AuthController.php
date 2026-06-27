@@ -12,10 +12,14 @@ class AuthController extends Controller {
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'organization_slug' => 'required|exists:organizations,slug',
+            'organization_name' => 'required|string',
             'role' => 'sometimes|in:admin,agent,customer'
         ]);
-        $org = Organization::where('slug', $data['organization_slug'])->first();
+        $slug = \Illuminate\Support\Str::slug($data['organization_name']);
+        $org = Organization::firstOrCreate(
+            ['slug' => $slug],
+            ['name' => $data['organization_name']]
+        );
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],

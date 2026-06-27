@@ -16,7 +16,7 @@ class AuthTest extends TestCase
             'name' => 'John Doe',
             'email' => 'john@test.com',
             'password' => 'password123',
-            'organization_slug' => 'test-org',
+            'organization_name' => 'Acme Corp',
             'role' => 'agent'
         ]);
         $response->assertStatus(201)->assertJsonStructure(['user', 'token']);

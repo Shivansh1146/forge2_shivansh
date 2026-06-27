@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import api from '../lib/axios';
 
 export default function Register() {
-    const [form, setForm] = useState({ name: '', email: '', password: '', organization_slug: '' });
+    const [form, setForm] = useState({ name: '', email: '', password: '', organization_name: '' });
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -15,7 +15,8 @@ export default function Register() {
             toast.success('Account created successfully!');
             navigate('/');
         } catch (error) {
-            toast.error('Registration failed. Please check your details.');
+            const msg = error.response?.data?.message || 'Registration failed. Please check your details.';
+            toast.error(msg);
         }
     };
 
@@ -30,7 +31,7 @@ export default function Register() {
                         <input type="text" required className="w-full px-3 py-2 border rounded-md" placeholder="Full Name" onChange={e => setForm({...form, name: e.target.value})} />
                         <input type="email" required className="w-full px-3 py-2 border rounded-md" placeholder="Email address" onChange={e => setForm({...form, email: e.target.value})} />
                         <input type="password" required className="w-full px-3 py-2 border rounded-md" placeholder="Password" onChange={e => setForm({...form, password: e.target.value})} />
-                        <input type="text" required className="w-full px-3 py-2 border rounded-md" placeholder="Organization Slug (e.g. acme)" onChange={e => setForm({...form, organization_slug: e.target.value})} />
+                        <input type="text" required className="w-full px-3 py-2 border rounded-md" placeholder="Organization Name (e.g. Acme Corp)" onChange={e => setForm({...form, organization_name: e.target.value})} />
                     </div>
                     <button type="submit" className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">
                         Register

@@ -52,6 +52,9 @@ class TicketController extends Controller {
         return response()->json($ticket);
     }
     public function update(Request $request, $id) {
+        if ($request->user()->role === 'customer') {
+            return response()->json(['message' => 'Forbidden'], 403);
+        }
         $ticket = Ticket::where('organization_id', $request->user()->organization_id)->findOrFail($id);
         $old = $ticket->toArray();
         $data = $request->validate([
@@ -72,6 +75,9 @@ class TicketController extends Controller {
         return response()->json($ticket->fresh()->load(['requester','assignee']));
     }
     public function destroy(Request $request, $id) {
+        if ($request->user()->role !== 'admin') {
+            return response()->json(['message' => 'Forbidden'], 403);
+        }
         $ticket = Ticket::where('organization_id', $request->user()->organization_id)->findOrFail($id);
         $ticket->delete();
         return response()->json(['message' => 'Deleted']);

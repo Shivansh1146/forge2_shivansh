@@ -14,7 +14,8 @@ export default function CreateTicket() {
             toast.success('Ticket created successfully!');
             navigate('/tickets');
         } catch (error) {
-            toast.error('Failed to create ticket');
+            const msg = error.response?.data?.message || 'Failed to create ticket';
+            toast.error(msg);
         }
     };
 

@@ -26,7 +26,8 @@ export default function TicketDetail() {
             setReplyBody('');
             queryClient.invalidateQueries(['ticket', id]);
         } catch (error) {
-            toast.error('Failed to add reply');
+            const msg = error.response?.data?.message || 'Failed to add reply';
+            toast.error(msg);
         }
     };
 
